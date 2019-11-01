@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <title>数组平展</title>
+    </head>
+    <body></body>
+    <script>
+        var arr = [[1,1],[2,2],[3,3]]
+        function change(arr){
+            var newArr = []
+            for(var i = 0; i < arr.length; i++){
+                if(arr[i] instanceof Array){
+                    newArr = newArr.concat(change(arr[i]))
+                }
+                else{
+                    newArr.push(arr[i])
+                }
+            }
+            return newArr
+        }
+        console.log(change(arr))
+    </script>
+</html>
